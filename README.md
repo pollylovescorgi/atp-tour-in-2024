@@ -12,6 +12,19 @@ where "Date" like '2024%'
 group by "Winner"
 order by count_of_wins desc
 limit 10
+
+Winner      |count_of_wins|
+------------+-------------+
+Sinner J.   |           69|
+Zverev A.   |           61|
+Fritz T.    |           46|
+Dimitrov G. |           46|
+Rune H.     |           45|
+Alcaraz C.  |           43|
+Ruud C.     |           43|
+De Minaur A.|           42|
+Rublev A.   |           42|
+Medvedev D. |           41|
 	
 select "Winner", count("Winner") as count_of_trophies
 from atp_tennis at
@@ -20,6 +33,8 @@ and "Date" like '2024%'
 group by "Winner" 
 order by count_of_trophies desc
 ```
+
+
 
 Теперь рассмотрим единоличного лидера по показателям выше - какие турниры выиграл Янник Синнер и на каких покрытиях.
 
