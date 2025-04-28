@@ -25,7 +25,8 @@ Ruud C.     |           43|
 De Minaur A.|           42|
 Rublev A.   |           42|
 Medvedev D. |           41|
-	
+```
+```python
 select "Winner", count("Winner") as count_of_trophies
 from atp_tennis at
 where "Round" = 'The Final' 
@@ -87,6 +88,12 @@ from atp_tennis at
 where "Date" like '2024%'
 group by "Surface"
 order by num_of_matches desc
+
+Surface|num_of_matches|
+-------+--------------+
+Hard   |          1488|
+Clay   |           832|
+Grass  |           311|
 ```
 
 Действительно, в 2024 году было сыграно 1488 матчей на "харде", 832 - на грунте и всего 311 на траве. Учитывая разницу между кол-ом сыгранных матчей, справедливо утверждение, что в настоящее время важным требованием для доминирования в ATP-туре является качественная игра на харде. 
@@ -99,6 +106,9 @@ from atp_tennis at
 where "Score" = '6-0 6-0' 
 and "Date" like '2024%'
 group by "Winner"
+
+Winner|count_of_scores|
+------+---------------+
 ```
 
 Нет, матчей с двумя "баранками" в 2024 году не зафиксировано. Но были ли "выписаны баранки" хотя бы в одном из сыгранных сетов? 
@@ -110,6 +120,15 @@ where "Score" like '%6-0%'
 and "Date" like '2024%'
 group by "Winner"
 order by count_of_scores desc
+limit 5
+
+Winner            |count_of_scores|
+------------------+---------------+
+De Minaur A.      |              5|
+Borges N.         |              3|
+Dimitrov G.       |              2|
+Kecmanovic M.     |              2|
+Thompson J.       |              2|
 ```
 Да, такие сеты с "баранками" были. Лидером по этому показателю в 2024 году стал Алекс Деминор (5 сетов) - победитель того самого матча в Монте-Карло. 
 
@@ -121,6 +140,14 @@ from atp_tennis at
 where "Date" like '2024%'
 group by "Series" 
 order by count_of_series desc
+
+Series      |count_of_series|
+------------+---------------+
+ATP250      |           1075|
+Masters 1000|            677|
+Grand Slam  |            485|
+ATP500      |            379|
+Masters Cup |             15|
 ```
 Больше всего сыгранных матчей в рамках турниров серии ATP250 (1075), затем - "Мастерс" (677), на третьем месте турниры Большого шлема (485). 
 
@@ -135,6 +162,12 @@ where "Series" = 'Grand Slam'
 and "Date" like '2024%'
 and "Round" = 'The Final'
 
+Winner    |Tournament     |
+----------+---------------+
+Sinner J. |Australian Open|
+Alcaraz C.|French Open    |
+Alcaraz C.|Wimbledon      |
+Sinner J. |US Open        |
 ```
 Таким образом, в прошедшем сезоне трофеи четырех главных теннисных турниров разделили между собой два теннисиста - Янник Синнер и Карлос Алькараз. Многие спортивные эксперты прогнозируют, что в ближайшее десятилетие именно они станут лидерами мирового тенниса после ухода БИГ-3. 
 
@@ -149,5 +182,12 @@ group by "Winner"
 order by count_of_wins desc
 limit 3
 
+Winner     |count_of_wins|
+-----------+-------------+
+Sinner J.  |           23|
+Alcaraz C. |           18|
+Zverev A.  |           18|
+Fritz T.   |           17|
+Medvedev D.|           15|
 ```
 Ожидаемо, лидером и по этому показателю является Янник Синнер (23), второе и третье место поделили Карлос Алькараз и Александр Зверев (18). 
