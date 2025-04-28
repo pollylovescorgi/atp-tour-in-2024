@@ -51,6 +51,17 @@ from atp_tennis at
 where "Winner" = 'Sinner J.' 
 and "Date" like '2024%' 
 and "Round" = 'The Final'
+
+Tournament                                |Series      |
+------------------------------------------+------------+
+Australian Open                           |Grand Slam  |
+ABN AMRO World Tennis Tournament          |ATP500      |
+Miami Open                                |Masters 1000|
+Halle Open                                |ATP500      |
+Western & Southern Financial Group Masters|Masters 1000|
+US Open                                   |Grand Slam  |
+Shanghai Masters                          |Masters 1000|
+Masters Cup                               |Masters Cup |
 ```
 
 ```python
@@ -61,6 +72,11 @@ and "Date" like '2024%'
 and "Round" = 'The Final'
 group by "Surface" 
 order by titles_on_each_surface desc
+
+Surface|titles_on_each_surface|
+-------+----------------------+
+Hard   |                     7|
+Grass  |                     1|
 ```
 
 Из результата запроса можно увидеть, что большинство побед Синнера в 2024 году пришлось на турниры, проходившие на покрытии "хард". Справедливо ли сделать общий вывод, что лидер мирового рейтинга прежде всего должен уметь успешно играть именно на этом покрытии? Можно проверить, посчитав кол-во матчей на каждом из покрытий.
