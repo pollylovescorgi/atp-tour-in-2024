@@ -32,7 +32,15 @@ where "Round" = 'The Final'
 and "Date" like '2024%'
 group by "Winner" 
 order by count_of_trophies desc
+limit 5
 ```
+Winner          |count_of_trophies
+----------------+-----------------
+Sinner J.       |                8
+Alcaraz C.      |                4
+Paul T.         |                3
+Berrettini M.   |                3
+Zverev A.       |                2
 
 
 
